@@ -1,0 +1,44 @@
+{% extends 'App/base.html' %} {% load static %}
+
+<!-- Page content -->
+{% block content %}
+<div class="container">
+  <div class="row mt-4">
+      <div class="col-12">
+        <div class="card shadow">
+          <div class="card-body">
+            <table class="table border border-2 p-2">
+              <thead>
+                <tr>
+                  <th scope="col">Retiree Name</th>
+                  <th scope="col">Ministry</th>
+                  <th scope="col">Department</th>
+                  <th scope="col">Appointment Date</th>
+                  <th scope="col">Date of Birth</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Years of Service</th>
+                  <th scope="col">Retirement Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for data in retirees %}
+                <tr>
+                  <td scope="row">{{data.Retname}}</td>
+                  <td>{{data.Minist}}</td>
+                  <td>{{data.Dept}}</td>
+                  <td>{{data.Apt_date}}</td>
+                  <td>{{data.Dob}}</td>
+                  <td>{{data.Age}}</td>
+                  <td>{{data.Duration}}</td>
+                  <td>{{data.Status}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</div>

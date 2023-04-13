@@ -11,29 +11,29 @@
     <!-- FontAwesome -->
     {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> {% endcomment %}
    
-    <title>{% block title %} CRS{% endblock %}</title>
+    <title>{% block title %} CSRS{% endblock %}</title>
 </head>
 <body>
      <!-- Navbar  -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-xxl">
-        <a class="navbar-brand fw-bold ms-3" href="{% url 'index' %}">CSRS</a>
+        <a class="navbar-brand fw-bold ms-3" href="{% url 'index' %}">CIVIL SERVANTS RETIREMENT SYSTEM</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
             aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-start align-content-center px-2" id="main-nav">
             <div class="navbar-nav justify-content-end mx-auto">
-                <a class="nav-link active" aria-current="page" href="#">REGISTRATION</a>
-                <a class="nav-link active" aria-current="page" href="#">EDIT</a>
-                <a class="nav-link active" aria-current="page" href="#">RETIREMENT</a>
-                <a class="nav-link active" aria-current="page" href="#">REPORTS</a>
-                <a class="nav-link active" aria-current="page" href="#">QUIT</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'civilservants' %}">REGISTRATION</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'csdetails' %}">EDIT</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'criteria' %}">RETIREMENT</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'reports' %}">REPORTS</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'civilservants' %}">QUIT</a>
             </div>
         </div>
 
     </div>
-</nav>
+</nav><br/><br/><br/>
         <!-- ===== Block Content (ROOT) ===== -->
 
  {% block content %} 

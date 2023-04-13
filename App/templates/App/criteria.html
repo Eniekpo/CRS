@@ -1,0 +1,29 @@
+{% extends 'App/base.html' %} {% load static %}
+
+<!-- Page content -->
+{% block content %}
+<section>
+  <div class="container" style="width: 95%; font-size: 14px">
+    <h1 class="p-3">RETIREMENT CRITERIA</h1>
+    <form method="POST" class="card p-3 shadow" autocomplete="off" novalidate>
+      {% csrf_token %} {% comment %} {{ form|crispy }} {% endcomment %}
+      <div class="row">
+        <div class="col-4">FirstName</div>
+        <div class="col-4">LastName</div>
+        <div class="col-4">Ministry</div>
+      </div>
+     
+      <button type="submit" class="btn btn-outline-primary mt-3" style="width: 90px">Submit</button>
+    </form>
+
+    <!-- Message from backend -->
+    {% for message in messages %} {% if message.tags == 'success' %}
+    <div class="text-center alert alert-primary alert-dismissible fade show" role="alert">
+      {{message}}
+      <a href="{% url 'forms' %}" type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="close"></a>
+    </div>
+    {% endif %} 
+    {% endfor %}
+  </div>
+</section>
+{% endblock content %}
