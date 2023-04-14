@@ -34,7 +34,7 @@ class Retirement(models.Model):
     dob = models.DateField()
     age = models.IntegerField()
     years_of_work = models.IntegerField()
-    retirement_status = models.CharField(max_length=50)
+    retirement_status = models.CharField(max_length=50, blank=True)
 
      # FUNCTION TO MAKE PREDICTIONS
     def save(self, *args, **kwargs):
