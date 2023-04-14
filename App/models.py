@@ -57,7 +57,7 @@ class Retirement(models.Model):
      # FUNCTION TO MAKE PREDICTIONS
     def save(self, *args, **kwargs):
         ml_model = joblib.load('ml_model/retirement_processor.joblib')
-        self.Predictions = ml_model.predict(
+        self.Retirement = ml_model.predict(
             [[self.age]])
         return super().save(*args, **kwargs)
 
