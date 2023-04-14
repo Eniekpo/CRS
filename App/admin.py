@@ -11,6 +11,7 @@ class CivilservantsAdmin(admin.ModelAdmin):
 admin.site.register(Civilservants, CivilservantsAdmin)  
 
 class RetirementAdmin(admin.ModelAdmin):
+    list_filter = ['retirement_status']
     list_display = ["retiree_name", "retiree_ministry", "retiree_department", "dob", "appointment_date", "age", "years_of_work", "retirement_status"]
     search_fields = ["retiree_name", "retiree_ministry", "retiree_department"]
     list_per_page = 10

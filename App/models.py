@@ -1,4 +1,7 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
+from sklearn.ensemble import RandomForestClassifier
+import joblib
 
 # Create your models here.
 
@@ -19,6 +22,7 @@ class Civilservants(models.Model):
         return self.firstname
 
     class Meta:
+        ordering = ['firstname']
         verbose_name = 'civilservants'
         verbose_name_plural = 'civilservants'
 
@@ -32,10 +36,18 @@ class Retirement(models.Model):
     years_of_work = models.IntegerField()
     retirement_status = models.CharField(max_length=50)
 
+     # FUNCTION TO MAKE PREDICTIONS
+    def save(self, *args, **kwargs):
+        ml_model = joblib.load('ml_model/retirement_processor.joblib')
+        self.Predictions = ml_model.predict(
+            [[self.age]])
+        return super().save(*args, **kwargs)
+
     def __str__(self):
         return self.retiree_department
 
     class Meta:
+        ordering = ['-appointment_date']
         verbose_name = 'retirement'
         verbose_name_plural = 'retirement'
 class Reports(models.Model):
@@ -52,5 +64,6 @@ class Reports(models.Model):
         return self.Minist
 
     class Meta:
+        ordering = ['-Apt_date']
         verbose_name = 'reports'
         verbose_name_plural = 'reports'
