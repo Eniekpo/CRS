@@ -22,32 +22,18 @@ class Civilservants(models.Model):
         verbose_name = 'civilservants'
         verbose_name_plural = 'civilservants'
 
-
-class csdetails(models.Model):
-    name = (models.ForeignKey(Civilservants, on_delete=models.CASCADE))
-    minist = models.CharField(max_length=100)
-    dept = models.CharField(max_length=100)
-    cs_age = models.IntegerField()
-    cs_years = models.IntegerField()
-
-    def __str__(self):
-        return self.dept
-
-    class Meta:
-        verbose_name = 'csdetails'
-        verbose_name_plural = 'csdetails'
-
-
 class Retirement(models.Model):
     retiree_name =  (models.ForeignKey(Civilservants, on_delete=models.CASCADE))
-    dob = models.DateField()
+    retiree_ministry = models.CharField(max_length=100)
+    retiree_department = models.CharField(max_length=100)
     appointment_date = models.DateField()
+    dob = models.DateField()
     age = models.IntegerField()
     years_of_work = models.IntegerField()
     retirement_status = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.retiree_name
+        return self.retiree_department
 
     class Meta:
         verbose_name = 'retirement'
@@ -63,7 +49,7 @@ class Reports(models.Model):
     Status = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.retname
+        return self.Minist
 
     class Meta:
         verbose_name = 'reports'

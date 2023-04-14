@@ -3,7 +3,7 @@
 <!-- Page content -->
 {% block content %}
 <div class="container">
-  <h3 class="">Retirement Reports</h3>
+  <h3 class="">Retirement Status Reports</h3>
   <div class="row mt-4">
     <div class="col-12">
       <div class="card shadow">
@@ -22,16 +22,16 @@
               </tr>
             </thead>
             <tbody>
-              {% for ret in retiree %}
+              {% for rs in retiree %}
               <tr>
-                <td scope="row">{{ret.Retname}}</td>
-                <td>{{ret.Minist}}</td>
-                <td>{{ret.Dept}}</td>
-                <td>{{ret.Apt_date}}</td>
-                <td>{{ret.Dob}}</td>
-                <td>{{ret.Age}}</td>
-                <td>{{ret.Duration}}</td>
-                <td>{{ret.Status}}</td>
+                <td scope="row">{{rs.retiree_name}}</td>
+                <td>{{rs.retiree_ministry}}</td>
+                <td>{{rs.retiree_department}}</td>
+                <td>{{rs.appointment_date}}</td>
+                <td>{{rs.dob}}</td>
+                <td>{{rs.age}}</td>
+                <td>{{rs.years_of_work}}</td>
+                <td>{{rs.retirement_status}}</td>
               </tr>
               {% endfor %}
             </tbody>
