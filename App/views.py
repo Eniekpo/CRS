@@ -2,8 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from . forms import SignupForm
+from . models import Record
 
 # Create your views here.
+
+
+def records(request):
+    records = Record.objects.all()
+    return render(request, 'App/records.html', {'records': records})
 
 
 def index(request):
@@ -49,5 +55,5 @@ def register_user(request):
     else:
         form = SignupForm()
         return render(request, 'App/register.html', {'form': form})
-        
+
     return render(request, 'App/register.html', {'form': form})
